@@ -55,8 +55,8 @@ const CaseManagementContainer: React.FC = (props) => {
       <Grid container spacing={3}>
         {
         // Get list of categories by taking getting the arry 'data.category' and mapping each element to a functin that gets the category.id
-        data ? data.category.map((category : ManagementCategory) => {
-            return <CaseCategory category_id={category.id}></CaseCategory>
+        data ? data.category.map((category : ManagementCategory, index : number) => {
+            return <CaseCategory key={index} category_id={category.id}></CaseCategory>
 
         })
         : "Something went wrong"
