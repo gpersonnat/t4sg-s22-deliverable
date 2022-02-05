@@ -61,7 +61,8 @@ const CaseCategory = (props: CaseCategoryProps) => {
       <Col>
           {category
             ? category.cases.map((c: CaseData, index: number) => {
-                return <CaseCard key={index} data={c} />;
+                return (<CaseCard key={index} data={c} /> 
+                  );
               })
             : "Something went wrong"}
         </Col>

@@ -44,10 +44,13 @@ type AddCaseModalProps = {
   Make sure to replace the string that is currently
   in this variable 
 */
+
+// Mutation to Insert Case
 const InsertCaseMutation = `
 mutation AddCaseMutation($description: String = "", $name: String = "", $status: String = "", $category_id : Int = 10) {
-  insert_cases_one(object: {description: $description, name: $name, status: $status}) {
+  insert_cases_one(object: {description: $description, name: $name, status: $status, category_id : $category_id}) {
     id
+    category_id
     name
     description
     status
@@ -130,11 +133,13 @@ const AddCaseModal: React.FC<AddCaseModalProps> = (props) => {
               }}
             >
               {      
-               data.cases.map((category : ManagementCategory, index: number) => {
+
+              // Take data, index object associated with "category" key and render name and input as value of Menuitem key for each category
+               data.category.map((category : ManagementCategory, index: number) => {
                   return <MenuItem key={index} value={category.id} >
                       {category.name}
                   </MenuItem>
-              })
+              }) 
             
 
               /*

@@ -21,12 +21,13 @@ import { CastForEducationSharp } from "@material-ui/icons";
   in this variable 
 */
 export const ManagementContainerQuery = 
-`query CasesIds {
-    cases {
-      name 
-      id
-    }
+`query Categories {
+  category {
+    name
+    id
+  }
 }
+
 `
 ;
 // END TODO
@@ -52,7 +53,9 @@ const CaseManagementContainer: React.FC = (props) => {
     <>
       <h5 className="title">Home Page</h5>
       <Grid container spacing={3}>
-        {data ? data.cases.map((category : ManagementCategory) => {
+        {
+        // Get list of categories by taking getting the arry 'data.category' and mapping each element to a functin that gets the category.id
+        data ? data.category.map((category : ManagementCategory) => {
             return <CaseCategory category_id={category.id}></CaseCategory>
 
         })

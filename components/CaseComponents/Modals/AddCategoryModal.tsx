@@ -36,6 +36,7 @@ type AddCaseModalProps = {
   onClose: () => void;
 };
 
+
 const InsertCategoryMutation = `
 mutation AddCategoryMutation($description: String = "", $name: String = "") {
     insert_category_one(object: {description: $description, name: $name}) {
