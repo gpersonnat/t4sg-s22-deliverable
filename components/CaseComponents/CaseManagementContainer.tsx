@@ -9,6 +9,7 @@ import AddCaseModal from "./Modals/AddCaseModal";
 import { useQuery } from "urql";
 import AddCategoryModal from "./Modals/AddCategoryModal";
 import AddTagModal from "./Modals/AddTagModal";
+import { CastForEducationSharp } from "@material-ui/icons";
 
 /* 
   FEATURE 1 TODO:
@@ -19,11 +20,15 @@ import AddTagModal from "./Modals/AddTagModal";
   Make sure to replace the string that is currently
   in this variable 
 */
-export const ManagementContainerQuery = `
-query MyQuery {
-  __typename 
+export const ManagementContainerQuery = 
+`query CasesIds {
+    cases {
+      name 
+      id
+    }
 }
-`;
+`
+;
 // END TODO
 
 export type ManagementCategory = {
@@ -47,14 +52,18 @@ const CaseManagementContainer: React.FC = (props) => {
     <>
       <h5 className="title">Home Page</h5>
       <Grid container spacing={3}>
-        {/*
+        {data ? data.cases.map((category : ManagementCategory) => {
+            return <CaseCategory category_id={category.id}></CaseCategory>
+
+        })
+        : "Something went wrong"
+        /*
           FEATURE 1 TODO:
           Use the data from the result of the query to render 
           a CaseCategory for every category in the response.
           Remember, the response is stored in the "data" variable!
-        */}
-
-        {/* END TODO */}
+        */
+      }
       </Grid>
 
       <AddCaseModal

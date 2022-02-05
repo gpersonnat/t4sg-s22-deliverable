@@ -30,7 +30,6 @@ const CategoryQuery = `
     }
 }
 `;
-/* END TODO */
 
 const CaseCategory = (props: CaseCategoryProps) => {
   const category_id = props.category_id;
@@ -59,7 +58,7 @@ const CaseCategory = (props: CaseCategoryProps) => {
         </Col>
       </Row>
       <Row>
-        <Col>
+      <Col>
           {category
             ? category.cases.map((c: CaseData, index: number) => {
                 return <CaseCard key={index} data={c} />;
